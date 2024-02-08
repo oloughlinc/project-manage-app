@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Alice Smith",
+        "username": "Alice@wanderers.com",
+        "password": "deadduck",
+        "role": "worker"
+    },
+    {
+        "name": "Bob Chancet",
+        "username": "Bob@wanderers.com",
+        "password": "deadduck",
+        "role": "worker"
+    },
+    {
+        "name": "Charlie Thomas",
+        "username": "Charlie@wanderers.com",
+        "password": "deadduck",
+        "role": "manager"
+    },
+    {
+        "name": "Dave Emmit",
+        "username": "Dave@wanderers.com",
+        "password": "deadduck",
+        "role": "worker"
+    },
+    {
+        "name": "Emma Emmerson",
+        "username": "Emma@wanderers.com",
+        "password": "deadduck",
+        "role": "worker"
+    },
+    {
+        "name": "Frankie Z",
+        "username": "Frankie@wanderers.com",
+        "password": "deadduck",
+        "role": "worker"
+    },
+    {
+        "name": "Grace O'Halley",
+        "username": "Grace@wanderers.com",
+        "password": "deadduck",
+        "role": "worker"
+    },
+    {
+        "name": "Henry Flenderson",
+        "username": "Henry@wanderers.com",
+        "password": "deadduck",
+        "role": "worker"
+    },
+    {
+        "name": "Ivy Jackson",
+        "username": "Ivy@wanderers.com",
+        "password": "deadduck",
+        "role": "worker"
+    },
+    {
+        "name": "Jack Johnson",
+        "username": "Jack@wanderers.com",
+        "password": "deadduck",
+        "role": "manager"
+    }
+]

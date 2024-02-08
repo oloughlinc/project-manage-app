@@ -31,6 +31,22 @@ app.get('/api/projects', async (req, res) => {
     }
 });
 
+app.post('/auth/login', () => {
+    /*
+    req.body.username == in database
+    req.body.password = deadduck
+    return ok!
+    return manager if manager else worker
+    return token
+    */
+})
+
+/*
+app.get('managerstuff', token = manager ? else deny, () => {
+
+})
+*/
+
 app.get('/api/tasks', async (req, res) => {
     try {
         const tasks = await getAll('pms', 'projects');

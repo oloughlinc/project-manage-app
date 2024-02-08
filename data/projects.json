@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "title": "Design a self-cleaning litter box for robotic cats",
+        "teamSize": 10,
+        "budget": 47799,
+        "workload": "Small",
+        "completionTime": null
+    },
+    {
+        "id": 2,
+        "title": "Create a virtual pet that evolves into different mythical creatures",
+        "teamSize": 10,
+        "budget": 40982,
+        "workload": "Extra Small",
+        "completionTime": null
+    },
+    {
+        "id": 3,
+        "title": "Write a program that turns pizza into energy",
+        "teamSize": 4,
+        "budget": 51790,
+        "workload": "Extra Large",
+        "completionTime": null
+    },
+    {
+        "id": 4,
+        "title": "Write a program that translates human laughter into binary code",
+        "teamSize": 7,
+        "budget": 42858,
+        "workload": "Large",
+        "completionTime": null
+    },
+    {
+        "id": 5,
+        "title": "Write a program that turns pizza into energy",
+        "teamSize": 2,
+        "budget": 6193,
+        "workload": "Medium",
+        "completionTime": null
+    }
+]

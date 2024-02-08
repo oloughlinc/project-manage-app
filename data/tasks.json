@@ -1,0 +1,182 @@
+[
+    {
+        "title": "Create a feature that generates customized greetings for time travelers",
+        "comments": "",
+        "completed": false,
+        "personAssigned": "Charlie Thomas",
+        "dueDate": "2024-07-20T07:27:01.970Z",
+        "size": 13,
+        "project": 4
+    },
+    {
+        "title": "Implement a sentiment analysis tool to decode the emotional state of houseplants",
+        "comments": "",
+        "completed": true,
+        "personAssigned": "Grace O'Halley",
+        "dueDate": "2024-03-11T11:20:17.406Z",
+        "size": 3,
+        "project": 3
+    },
+    {
+        "title": "Create a feature that generates customized greetings for time travelers",
+        "comments": "",
+        "completed": false,
+        "personAssigned": "Dave Emmit",
+        "dueDate": "2024-03-05T02:21:06.151Z",
+        "size": 8,
+        "project": 2
+    },
+    {
+        "title": "Add a functionality that generates random trivia about imaginary creatures",
+        "comments": "",
+        "completed": false,
+        "personAssigned": "Charlie Thomas",
+        "dueDate": "2024-02-26T00:54:56.053Z",
+        "size": 2,
+        "project": 1
+    },
+    {
+        "title": "Ensure the software can generate content that resonates with alternate versions of oneself",
+        "comments": "",
+        "completed": true,
+        "personAssigned": "Ivy Jackson",
+        "dueDate": "2024-03-05T12:08:02.444Z",
+        "size": 8,
+        "project": 3
+    },
+    {
+        "title": "Design a feature that allows users to communicate with ghosts through text messages",
+        "comments": "",
+        "completed": false,
+        "personAssigned": "Dave Emmit",
+        "dueDate": "2024-03-16T03:24:59.888Z",
+        "size": 5,
+        "project": 2
+    },
+    {
+        "title": "Add a functionality that generates random compliments for mythical creatures",
+        "comments": "",
+        "completed": false,
+        "personAssigned": "Alice Smith",
+        "dueDate": "2024-02-16T07:56:58.249Z",
+        "size": 2,
+        "project": 3
+    },
+    {
+        "title": "Implement a sentiment analysis tool to decode the emotional state of houseplants",
+        "comments": "",
+        "completed": false,
+        "personAssigned": "Alice Smith",
+        "dueDate": "2024-03-16T07:18:00.923Z",
+        "size": 13,
+        "project": 2
+    },
+    {
+        "title": "Create a functionality that translates computer code into interpretive dance routines",
+        "comments": "",
+        "completed": true,
+        "personAssigned": "Frankie Z",
+        "dueDate": "2024-07-31T09:53:42.634Z",
+        "size": 13,
+        "project": 2
+    },
+    {
+        "title": "Ensure the software can handle inputs from parallel dimensions without causing temporal disruptions",
+        "comments": "",
+        "completed": true,
+        "personAssigned": "Alice Smith",
+        "dueDate": "2024-04-07T05:45:02.716Z",
+        "size": 8,
+        "project": 4
+    },
+    {
+        "title": "Design a feature that allows users to communicate with ghosts through text messages",
+        "comments": "",
+        "completed": false,
+        "personAssigned": "Ivy Jackson",
+        "dueDate": "2024-07-26T16:20:40.004Z",
+        "size": 2,
+        "project": 1
+    },
+    {
+        "title": "Develop an algorithm for generating personalized prophecies for cosmic entities",
+        "comments": "",
+        "completed": false,
+        "personAssigned": "Ivy Jackson",
+        "dueDate": "2024-06-29T13:05:25.791Z",
+        "size": 13,
+        "project": 3
+    },
+    {
+        "title": "Teach the software to interpret the dreams of household appliances",
+        "comments": "",
+        "completed": false,
+        "personAssigned": "Jack Johnson",
+        "dueDate": "2024-02-26T21:24:49.733Z",
+        "size": 1,
+        "project": 3
+    },
+    {
+        "title": "Create a feature that predicts the weather on Mars using tea leaves",
+        "comments": "",
+        "completed": false,
+        "personAssigned": "Dave Emmit",
+        "dueDate": "2024-08-06T02:50:41.334Z",
+        "size": 5,
+        "project": 2
+    },
+    {
+        "title": "Ensure the software can generate content for dreamscape adventures and astral journeys",
+        "comments": "",
+        "completed": true,
+        "personAssigned": "Frankie Z",
+        "dueDate": "2024-04-05T11:22:00.297Z",
+        "size": 2,
+        "project": 3
+    },
+    {
+        "title": "Create a functionality that generates personalized fortune cookies for sentient beings",
+        "comments": "",
+        "completed": true,
+        "personAssigned": "Charlie Thomas",
+        "dueDate": "2024-03-31T22:23:21.133Z",
+        "size": 2,
+        "project": 1
+    },
+    {
+        "title": "Program the software to generate personalized affirmations for sentient robots",
+        "comments": "",
+        "completed": true,
+        "personAssigned": "Ivy Jackson",
+        "dueDate": "2024-04-30T06:49:59.178Z",
+        "size": 2,
+        "project": 1
+    },
+    {
+        "title": "Implement a tool for generating motivational speeches for sentient clouds",
+        "comments": "",
+        "completed": true,
+        "personAssigned": "Frankie Z",
+        "dueDate": "2024-04-24T11:51:27.220Z",
+        "size": 5,
+        "project": 1
+    },
+    {
+        "title": "Ensure the software can handle inputs from parallel universes, including alternate timelines and mirror dimensions",
+        "comments": "",
+        "completed": false,
+        "personAssigned": "Bob Chancet",
+        "dueDate": "2024-04-06T01:46:39.260Z",
+        "size": 2,
+        "project": 5
+    },
+    {
+        "title": "Add a functionality that generates random trivia about imaginary creatures",
+        "comments": "",
+        "completed": true,
+        "personAssigned": "Grace O'Halley",
+        "dueDate": "2024-07-04T14:43:34.609Z",
+        "size": 8,
+        "project": 5
+    }
+]
