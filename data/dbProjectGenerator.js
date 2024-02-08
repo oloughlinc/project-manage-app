@@ -1,10 +1,10 @@
 const fs = require('fs');
 
-const filename = 'projects.json';
-const itemsNum = 5;
+const filename = 'trainingData.json';
+const itemsNum = 1000;
 
 const maxTeamSize = 10;
-const maxBudget = 100000;
+const maxBudget = 50000;
 
 // Function to generate a random task titles
 function getRandomTitle() {
@@ -53,34 +53,64 @@ function getRandomTitle() {
     return workAssignments[Math.floor(Math.random() * workAssignments.length)];
 }
 
-// Function to generate a random name
+// // Define an object to map each size to a unique number
+// const sizeMap = {
+//     "XS": 1,
+//     "S": 2,
+//     "M": 3,
+//     "L": 4,
+//     "XL": 5
+// };
+
+
+// Function to generate a random story size
 function getRandomSize() {
-    const sizes = ["Extra Small", "Small", "Medium", "Large", "Extra Large"];
+    const sizes = [1, 2, 3, 5, 8, 13, 21]
     return sizes[Math.floor(Math.random() * sizes.length)];
 }
 
-function estimateCompletion() {
-    return null;
+
+function estimateCompletion(budget, teamSize, workload) {
+
+    //Time adjustments, baseline = 1
+    let timeAdjustment = 1
+    let budgetAdjustment = 1
+
+    //Calculate time adjustment based on team size and workload
+    timeAdjustment = Math.max(1, Math.ceil(workload / teamSize))
+
+    if (budget > maxBudget / 2) {
+        budgetAdjustment = 1.2 //If budget is high, increase speed
+    } else {
+        budgetAdjustment = 0.8 // If budget is low, decrease speed
+    }
+
+    const estimatedCompletionTime = timeAdjustment * budgetAdjustment
+
+    //console.log("test")
+    return estimatedCompletionTime
 }
 
-function calculateCompletionTime(budget, team_size, workload) {
-    return null;
-}
 
 // Generate array of itemsNum JSON objects
 const jsonArray = [];
 for (let i = 0; i < itemsNum; i++) {
     const jsonObject = {
-        "id": Math.floor(Math.random() * 3) + 1,
+        "id": Math.floor(Math.random() * 89) + 1,
         "title": getRandomTitle(),
         "teamSize": Math.floor(Math.random() * maxTeamSize) + 1,
         "budget": Math.floor(Math.random() * maxBudget), // Randomly true or false
         "workload": getRandomSize(),
-        "completionTime": estimateCompletion()
     };
-    //jsonObject['CompletionTime'] = calculateCompletionTime(jsonObject.budget, jsonObject.teamSize, jsonObject.workload);
+    
+
+    jsonObject['completionTime'] = estimateCompletion(jsonObject.budget, jsonObject.teamSize, jsonObject.workload);
     jsonArray.push(jsonObject);
+    console.log("ID: ", jsonObject.id, "Team Size:", jsonObject.teamSize, "Budget:", jsonObject.budget, "Workload:", jsonObject.workload, "Completion Time:", jsonObject.completionTime)
 }
+
+
+
 
 fs.writeFileSync(filename, JSON.stringify(jsonArray));
 console.log(`successfully created ${itemsNum} random projects in ${filename}`);
