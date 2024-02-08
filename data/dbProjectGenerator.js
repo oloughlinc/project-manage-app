@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-const filename = 'trainingData.json';
-const itemsNum = 1000;
+const filename = 'data/trainingData.json';
+const itemsNum = 5;
 
 const maxTeamSize = 10;
 const maxBudget = 50000;
@@ -75,9 +75,27 @@ function estimateCompletion(budget, teamSize, workload) {
     //Time adjustments, baseline = 1
     let timeAdjustment = 1
     let budgetAdjustment = 1
-
+    budget = budget/1000
+    
+    adjustedBudg =
     //Calculate time adjustment based on team size and workload
     timeAdjustment = Math.max(1, Math.ceil(workload / teamSize))
+    console.log(timeAdjustment)
+    //budget, team size, workload
+    //budget = budget/10000
+    //ETC = (budget + teamSize + workload)  
+    //ETIC = ETC * random(0.9-1.1)
+    // Normalize budget
+    budget /= 10000;
+
+    // Calculate ETC (Estimated Time to Completion)
+    let ETC = workload / (budget + teamSize ) ;
+    ETC *= 10
+    
+    // Add randomness to ETC between 0.9 and 1.1
+    let ETIC = ETC * (0.9 + Math.random() * 0.2); // random number between 0.9 and 1.1
+
+    return Math.round(ETIC);
 
     if (budget > maxBudget / 2) {
         budgetAdjustment = 1.2 //If budget is high, increase speed
@@ -85,7 +103,7 @@ function estimateCompletion(budget, teamSize, workload) {
         budgetAdjustment = 0.8 // If budget is low, decrease speed
     }
 
-    const estimatedCompletionTime = timeAdjustment * budgetAdjustment
+    const estimatedCompletionTime = Math.round(timeAdjustment * budgetAdjustment)
 
     //console.log("test")
     return estimatedCompletionTime
@@ -112,5 +130,6 @@ for (let i = 0; i < itemsNum; i++) {
 
 
 
-fs.writeFileSync(filename, JSON.stringify(jsonArray));
-console.log(`successfully created ${itemsNum} random projects in ${filename}`);
+//fs.writeFileSync(filename, JSON.stringify(jsonArray));
+//console.log(`successfully created ${itemsNum} random projects in ${filename}`);
+console.log(jsonArray)
