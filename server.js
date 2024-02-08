@@ -37,6 +37,15 @@ async function getOne(database, coll, term) {
     return result;
 }
 
+async function putOne(database, coll, term) {
+    const client = await MongoClient.connect(dbUri);
+    const db = client.db(database);
+    const collection = db.collection(coll);
+    const result = await collection.insertOne(term);
+    client.close();
+    return result;
+}
+
 app.get('/api/test', async (req, res) => {
     res.json({'status': 'ok'});
 });
@@ -60,6 +69,16 @@ app.get("/api/projects/:id", async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+app.post("/api/projects", async (req, res) => {
+    try {
+        let project = req.body;
+        const result = await putOne(dbName, 'projects', project);
+        res.json(result);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+})
 
 app.post('/auth/login', async (req, res) => {
     try {
@@ -105,6 +124,17 @@ app.get("/api/tasks/project/:id", async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+app.post("/api/tasks", async (req, res) => {
+    try {
+        let task = req.body;
+        console.log(task);
+        const result = await putOne(dbName, 'tasks', task);
+        res.json(result);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+})
 
 const port = 3500;
 app.listen(port, () => console.log(`server running on port ${port}`));
