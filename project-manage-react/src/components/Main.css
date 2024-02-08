@@ -1,6 +1,11 @@
+body, html {
+  height: 100%;
+}
+
 .app {
     display: flex;
-    height: 100vh; /* Set the height to fill the viewport */
+    height: 550px; /* Set the height to fill the viewport */
+    overflow: hidden;
   }
   
   .sidebar {
@@ -14,5 +19,5 @@
     background-color: #f0f0f0;
     padding: 20px;
     overflow-y: scroll;
-    height: 400px;
+    height: 500px;
   }

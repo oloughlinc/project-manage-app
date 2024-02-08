@@ -1,5 +1,6 @@
 import React from "react";
 import { DataGrid } from '@mui/x-data-grid'
+import Button from '@mui/material/Button';
 import './TasksGrid.css'
 
 export function TasksGrid() {
@@ -29,7 +30,7 @@ export function TasksGrid() {
     };
 
     return (
-        <>
+        <div className="relative-pos">
             <p>Project 1</p>
             <div id='details'>
                 <p>Team Size: 10</p>
@@ -37,22 +38,19 @@ export function TasksGrid() {
                 <p>Workload: Large</p>
                 <p>Estimated Completion: 22 Days</p>
             </div>
+            <Button id="top-right" variant="contained">+ Create Task</Button>
             <div style={{ height: 400, width: '100%' }}>
                 <DataGrid
                     rows={rows}
                     columns={columns}
-                    initialState={{
-                        pagination: {
-                            paginationModel: {
-                                pageSize: 100,
-                            },
-                        },
-                    }}
+                    
+                    hideFooter={true}
+                    hideFooterPagination={true}
                     pageSizeOptions={[0]}
                     checkboxSelection={false}
                     onRowClick={handleRowClick}
                 />
             </div>
-        </>
+        </div>
     );
 }

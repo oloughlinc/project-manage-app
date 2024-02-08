@@ -7,10 +7,10 @@ export function TasksView() {
     return (
         <>
             <h1>Projects and Tasks</h1>
-            <div id='projectContainer'>
+            <div className='projectContainer'>
                 <TasksGrid />
             </div>
-            <div id='projectContainer'>
+            <div className='projectContainer'>
                 <TasksGrid />
             </div>
             
