@@ -8,6 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 const dbUri = 'mongodb://127.0.0.1:27017';
+const dbName = 'pms';
 
 async function getAll(database, coll) {
     const client = await MongoClient.connect(dbUri);
@@ -42,7 +43,7 @@ app.get('/api/test', async (req, res) => {
 
 app.get('/api/projects', async (req, res) => {
     try {
-        const projects = await getAll('pms', 'projects');
+        const projects = await getAll(dbName, 'projects');
         res.json(projects);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -53,7 +54,7 @@ app.get("/api/projects/:id", async (req, res) => {
     try {
         let id = req.params.id
         let term = { 'id': +id };
-        const project = await findSome('pms', 'projects', term);
+        const project = await findSome(dbName, 'projects', term);
         res.json(project);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -63,7 +64,7 @@ app.get("/api/projects/:id", async (req, res) => {
 app.post('/auth/login', async (req, res) => {
     try {
         let {username, password} = req.body;
-        const user = await getOne('pms', 'users', {'username': username});
+        const user = await getOne(dbName, 'users', {'username': username});
         if (!user || password !== user.password) {
             res.status(404).json({'message': 'Invalid Credentials'}); 
             return;
@@ -76,7 +77,7 @@ app.post('/auth/login', async (req, res) => {
 
 app.get('/api/tasks', async (req, res) => {
     try {
-        const tasks = await getAll('pms', 'tasks');
+        const tasks = await getAll(dbName, 'tasks');
         res.json(tasks);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -87,7 +88,7 @@ app.get('/api/tasks/:id', async (req, res) => {
     try {
         let id = req.params.id
         let o_id = new ObjectId(id);
-        const task = await getOne('pms', 'tasks', {"_id": o_id});
+        const task = await getOne(dbName, 'tasks', {"_id": o_id});
         res.json(task);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -98,7 +99,7 @@ app.get("/api/tasks/project/:id", async (req, res) => {
     try {
         let id = req.params.id
         let term = { 'project': +id };
-        const tasks = await findSome('pms', 'tasks', term);
+        const tasks = await findSome(dbName, 'tasks', term);
         res.json(tasks);
     } catch (error) {
         res.status(500).json({ error: error.message });
