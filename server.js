@@ -1,6 +1,9 @@
 const { MongoClient, ObjectId } = require('mongodb')
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require("body-parser");
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express")
 
 const app = express();
 
@@ -135,6 +138,40 @@ app.post("/api/tasks", async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 })
+
+const options = {
+    definition: {
+      openapi: "3.1.0",
+      info: {
+        title: "Project Management API",
+        version: "0.1.0",
+        description:
+          "This is a CRUD API built with Node.js and Express accessing a MongoDB backend.",
+        license: {
+          name: "NO LICENSE - DEMO PROJECT FOR EDP",
+          url: "https://www.google.com",
+        },
+        contact: {
+          name: "Craig O'Loughlin / Zachary Mowry",
+          url: "https://www.travelers.com",
+          email: "coloughl@travelers.com",
+        },
+      },
+      servers: [
+        {
+          url: "http://localhost:3500",
+        },
+      ],
+    },
+    apis: ["./swagger.js"],
+  };
+  
+  const specs = swaggerJsdoc(options);
+  app.use(
+    "/api-docs",
+    swaggerUi.serve,
+    swaggerUi.setup(specs)
+  );
 
 const port = 3500;
 app.listen(port, () => console.log(`server running on port ${port}`));
