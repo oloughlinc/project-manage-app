@@ -18,6 +18,15 @@ async function getAll(database, coll) {
     return result;
 }
 
+async function findSome(database, coll, term) {
+    const client = await MongoClient.connect(dbUri);
+    const db = client.db(database);
+    const collection = db.collection(coll);
+    const result = await collection.find(term).toArray();
+    client.close();
+    return result;
+}
+
 app.get('/api/test', async (req, res) => {
     res.json({'status': 'ok'});
 });
@@ -26,6 +35,17 @@ app.get('/api/projects', async (req, res) => {
     try {
         const projects = await getAll('pms', 'projects');
         res.json(projects);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.get("/api/projects/:id", async (req, res) => {
+    try {
+        let id = req.params.id
+        let term = { 'id': +id };
+        const project = await findSome('pms', 'projects', term);
+        res.json(project);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -50,6 +70,17 @@ app.get('managerstuff', token = manager ? else deny, () => {
 app.get('/api/tasks', async (req, res) => {
     try {
         const tasks = await getAll('pms', 'projects');
+        res.json(tasks);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.get("/api/tasks/project/:id", async (req, res) => {
+    try {
+        let id = req.params.id
+        let term = { 'project': +id };
+        const tasks = await findSome('pms', 'tasks', term);
         res.json(tasks);
     } catch (error) {
         res.status(500).json({ error: error.message });
