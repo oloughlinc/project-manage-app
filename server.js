@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb')
+const { MongoClient, ObjectId } = require('mongodb')
 const express = require('express');
 const cors = require('cors');
 
@@ -74,16 +74,21 @@ app.post('/auth/login', async (req, res) => {
     }
 });
 
-/*
-app.get('managerstuff', token = manager ? else deny, () => {
-
-})
-*/
-
 app.get('/api/tasks', async (req, res) => {
     try {
-        const tasks = await getAll('pms', 'projects');
+        const tasks = await getAll('pms', 'tasks');
         res.json(tasks);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.get('/api/tasks/:id', async (req, res) => {
+    try {
+        let id = req.params.id
+        let o_id = new ObjectId(id);
+        const task = await getOne('pms', 'tasks', {"_id": o_id});
+        res.json(task);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
