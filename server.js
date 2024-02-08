@@ -27,6 +27,15 @@ async function findSome(database, coll, term) {
     return result;
 }
 
+async function getOne(database, coll, term) {
+    const client = await MongoClient.connect(dbUri);
+    const db = client.db(database);
+    const collection = db.collection(coll);
+    const result = await collection.findOne(term);
+    client.close();
+    return result;
+}
+
 app.get('/api/test', async (req, res) => {
     res.json({'status': 'ok'});
 });
@@ -51,15 +60,19 @@ app.get("/api/projects/:id", async (req, res) => {
     }
 });
 
-app.post('/auth/login', () => {
-    /*
-    req.body.username == in database
-    req.body.password = deadduck
-    return ok!
-    return manager if manager else worker
-    return token
-    */
-})
+app.post('/auth/login', async (req, res) => {
+    try {
+        let {username, password} = req.body;
+        const user = await getOne('pms', 'users', {'username': username});
+        if (!user || password !== user.password) {
+            res.status(404).json({'message': 'Invalid Credentials'}); 
+            return;
+        }
+        res.json(user);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 
 /*
 app.get('managerstuff', token = manager ? else deny, () => {
