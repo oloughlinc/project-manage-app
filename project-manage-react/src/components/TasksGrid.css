@@ -1,0 +1,8 @@
+#details p {
+    display: inline; /* or inline-block */
+    margin-right: 20px; /* Add margin to create space between elements */
+}
+
+#details {
+    margin-bottom: 15px;
+}

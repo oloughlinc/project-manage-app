@@ -1,8 +1,9 @@
 import React from "react";
 import { DataGrid } from '@mui/x-data-grid'
+import './TasksGrid.css'
 
 export function TasksGrid() {
-    
+
     const rows = [];
     for (let i = 1; i <= 5; i++) {
         rows.push({
@@ -25,27 +26,33 @@ export function TasksGrid() {
     const handleRowClick = (params) => {
         console.log('Row clicked:', params.row); // Log the clicked row data
         // You can perform any action here with the clicked row data
-      };
+    };
 
     return (
         <>
-        <p>Project 1</p>
-        <div style={{ height: 400, width: '100%' }}>
-            <DataGrid
-                rows={rows}
-                columns={columns}
-                initialState={{
-                    pagination: {
-                      paginationModel: {
-                        pageSize: 100,
-                      },
-                    },
-                  }}
-                  pageSizeOptions={[0]}
-                checkboxSelection={false}
-                onRowClick={handleRowClick}
-            />
-        </div>
+            <p>Project 1</p>
+            <div id='details'>
+                <p>Team Size: 10</p>
+                <p>Budget: $10000</p>
+                <p>Workload: Large</p>
+                <p>Estimated Completion: 22 Days</p>
+            </div>
+            <div style={{ height: 400, width: '100%' }}>
+                <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    initialState={{
+                        pagination: {
+                            paginationModel: {
+                                pageSize: 100,
+                            },
+                        },
+                    }}
+                    pageSizeOptions={[0]}
+                    checkboxSelection={false}
+                    onRowClick={handleRowClick}
+                />
+            </div>
         </>
     );
 }
