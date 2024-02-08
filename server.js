@@ -88,7 +88,7 @@ app.post('/auth/login', async (req, res) => {
         let {username, password} = req.body;
         const user = await getOne(dbName, 'users', {'username': username});
         if (!user || password !== user.password) {
-            res.status(404).json({'message': 'Invalid Credentials'}); 
+            res.status(403).json({'message': 'Invalid Credentials'}); 
             return;
         }
         res.json(user);
