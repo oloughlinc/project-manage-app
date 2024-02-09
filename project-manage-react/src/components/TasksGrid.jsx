@@ -7,8 +7,10 @@ import './TasksGrid.css'
 export function TasksGrid({tasks, project}) {
 
     const rows = [];
+    let id = 0;
     for (let task of tasks) {
         rows.push({
+            id: ++id, 
             title: task.title,
             personAssigned: task.personAssigned,
             dueDate: task.dueDate,
@@ -18,7 +20,8 @@ export function TasksGrid({tasks, project}) {
     }
 
     const columns = [
-        { field: 'title', headerName: 'Title', width: 350 },
+        { field: 'id', headerName: 'ID', width: 50 },
+        { field: 'title', headerName: 'Title', width: 450 },
         { field: 'personAssigned', headerName: 'Assignee', width: 150 },
         { field: 'dueDate', headerName: 'Due Date', width: 150 },
         { field: 'size', headerName: 'Size', width: 90 },
@@ -40,7 +43,7 @@ export function TasksGrid({tasks, project}) {
                 <p id='estimate'><b>Estimated Completion:</b> 22 Days</p>
             </div>
             <Button id="top-right" variant="contained">+ Create Task</Button>
-            <div style={{ height: 400, width: '100%' }}>
+            <div style={{ height: '100%', width: '100%' }}>
                 <DataGrid
                     rows={rows}
                     columns={columns}
