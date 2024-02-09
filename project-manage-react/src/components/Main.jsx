@@ -11,7 +11,7 @@ export function Main() {
         <>
             <TopBar />
             <div className="app">
-                <div className="sidebar">
+                <div className="sidebar-outer">
                     {/* Sidebar content */}
                     <SideBar />
                 </div>

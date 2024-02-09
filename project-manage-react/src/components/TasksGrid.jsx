@@ -3,25 +3,26 @@ import { DataGrid } from '@mui/x-data-grid'
 import Button from '@mui/material/Button';
 import './TasksGrid.css'
 
-export function TasksGrid() {
+// display a single project and a list of tasks assoc. w/ it
+export function TasksGrid({tasks, project}) {
 
     const rows = [];
-    for (let i = 1; i <= 5; i++) {
+    for (let task of tasks) {
         rows.push({
-            id: i,
-            firstName: `John${i}`,
-            lastName: `Doe${i}`,
-            age: Math.floor(Math.random() * 100),
-            email: `john${i}@example.com`,
+            title: task.title,
+            personAssigned: task.personAssigned,
+            dueDate: task.dueDate,
+            size: task.size,
+            completed: task.completed ? 'Complete' : 'In Progress'
         });
     }
 
     const columns = [
-        { field: 'id', headerName: 'ID', width: 90 },
-        { field: 'firstName', headerName: 'First Name', width: 150 },
-        { field: 'lastName', headerName: 'Last Name', width: 150 },
-        { field: 'age', headerName: 'Age', width: 90 },
-        { field: 'email', headerName: 'Email', width: 250 },
+        { field: 'title', headerName: 'Title', width: 350 },
+        { field: 'personAssigned', headerName: 'Assignee', width: 150 },
+        { field: 'dueDate', headerName: 'Due Date', width: 150 },
+        { field: 'size', headerName: 'Size', width: 90 },
+        { field: 'completed', headerName: 'Status', width: 150 },
     ];
 
     const handleRowClick = (params) => {
@@ -31,12 +32,12 @@ export function TasksGrid() {
 
     return (
         <div className="relative-pos">
-            <p>Project 1</p>
+            <p id='project-title'>{project.title}</p>
             <div id='details'>
-                <p>Team Size: 10</p>
-                <p>Budget: $10000</p>
-                <p>Workload: Large</p>
-                <p>Estimated Completion: 22 Days</p>
+                <p><b>Team Size:</b> {project.teamSize}</p>
+                <p><b>Budget:</b> ${project.budget}</p>
+                <p><b>Workload:</b> {project.workload}</p>
+                <p id='estimate'><b>Estimated Completion:</b> 22 Days</p>
             </div>
             <Button id="top-right" variant="contained">+ Create Task</Button>
             <div style={{ height: 400, width: '100%' }}>

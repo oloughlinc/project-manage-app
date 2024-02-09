@@ -1,14 +1,16 @@
 .sidebar {
-    width: 250px;
+    width: 90%;
     height: 100vh;
-    background-color: #333;
-    color: #fff;
+    background-color: white;
+    color: black;
+    border-right: 2px solid lightgray;
   }
   
   .sidebar-header {
     padding: 1rem;
     font-size: 1.2rem;
     font-weight: bold;
+    width: 100%;
   }
   
   .sidebar-menu {
@@ -21,7 +23,7 @@
   }
   
   .sidebar-menu a {
-    color: #fff;
+    color: black;
     text-decoration: none;
   }
   
