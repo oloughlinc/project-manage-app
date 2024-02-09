@@ -1,0 +1,22 @@
+body, html {
+  height: 100%;
+}
+
+.app {
+    display: flex;
+    height: 100vh; 
+  }
+
+  .sidebar-outer {
+    width: 15%; 
+    background-color: white;
+    color: black;
+  }
+  
+  .content {
+    flex: 1; 
+    background-color: white;
+    padding: 20px;
+    overflow-y: scroll;
+    height: 100vh;
+  }

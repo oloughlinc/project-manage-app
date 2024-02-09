@@ -1,0 +1,7 @@
+.projectContainer {
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgb(253, 253, 253);
+}
