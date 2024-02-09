@@ -8,13 +8,14 @@ import { BrowserRouter } from 'react-router-dom'
 //if logged in show main else show login
 
 function App() {
+  const [currentUser, setCurrentUser] = useState({})
   
   return (
     <>
     <BrowserRouter>
     <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/*" element={<Main />} />
+      <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />} />
+      <Route path="/*" element={<Main currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
     </Routes>
     </BrowserRouter>
     </>

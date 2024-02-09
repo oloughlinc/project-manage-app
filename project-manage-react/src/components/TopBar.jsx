@@ -3,17 +3,21 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import './TopBar.css'
+import { useNavigate } from "react-router-dom";
 
-export function TopBar() {
+export function TopBar({currentUser, setCurrentUser}) {
+
+  const navigate = useNavigate();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-    console.log('click');
   };
   const handleClose = () => {
     setAnchorEl(null);
+    setCurrentUser({});
+    navigate('/login')
   };
 
   return (
@@ -35,7 +39,7 @@ export function TopBar() {
 
       {/* User Profile Section */}
       <div className="user-profile">
-        <span>Welcome, John Doe</span>
+        <span>Welcome, {currentUser.name}</span>
         {/* <img src="/path/to/profile-pic.png" alt="Profile" /> */}
         {/* You can add a dropdown menu for user actions */}
         <div>

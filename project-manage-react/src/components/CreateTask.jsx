@@ -60,7 +60,7 @@ export function CreateTask() {
                 </div>
                 <Stack spacing={2} direction="row">
                     <Button type='submit' variant="contained">Submit</Button>
-                    <NavLink to="/tasks">
+                    <NavLink to="/">
                         <Button variant="outlined">Cancel</Button>
                     </NavLink>
                 </Stack>

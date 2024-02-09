@@ -10,10 +10,10 @@ import { Route, Routes, Navigate, Link, NavLink } from 'react-router-dom'
 
 import './Main.css'
 
-export function Main() {
+export function Main({currentUser, setCurrentUser}) {
     return (
         <>
-            <TopBar />
+            <TopBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             <div className="app">
                 <div className="sidebar-outer">
                     {/* Sidebar content */}
@@ -22,7 +22,7 @@ export function Main() {
                 <div className="content">
                     {/* Main content area */}
                     <Routes>
-                        <Route path="/" element={<TasksView />} />
+                        <Route path="/" element={<TasksView currentUser={currentUser}/>} />
                         <Route path="/create" element={<CreateTask />} /> 
                         <Route path="/update/:id" element={<UpdateTask />} />  
                     </Routes>

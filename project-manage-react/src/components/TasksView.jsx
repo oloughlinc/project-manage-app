@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 
 import './TasksView.css'
 
-export function TasksView() {
+export function TasksView({currentUser}) {
 
     const [tasks, setTasks] = useState([]);
     const [projects, setProjects] = useState([]);
