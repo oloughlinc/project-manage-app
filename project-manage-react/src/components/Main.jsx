@@ -3,6 +3,9 @@ import React from 'react'
 import { SideBar } from "./SideBar"
 import { TopBar } from "./TopBar"
 import { TasksView } from "./TasksView"
+import { CreateTask } from './CreateTask'
+
+import { Route, Routes, Navigate, Link, NavLink } from 'react-router-dom'
 
 import './Main.css'
 
@@ -17,7 +20,10 @@ export function Main() {
                 </div>
                 <div className="content">
                     {/* Main content area */}
-                    <TasksView />
+                    <Routes>
+                        <Route path="/tasks" element={<TasksView />} />
+                        <Route path="/create" element={<CreateTask />} />  
+                    </Routes>
                 </div>
             </div>      
         </>
