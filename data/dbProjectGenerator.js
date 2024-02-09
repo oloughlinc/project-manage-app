@@ -93,16 +93,6 @@ function estimateCompletion(budget, teamSize, workload) {
 
     return Math.round(ETIC);
 
-    if (budget > maxBudget / 2) {
-        budgetAdjustment = 1.2 //If budget is high, increase speed
-    } else {
-        budgetAdjustment = 0.8 // If budget is low, decrease speed
-    }
-
-    const estimatedCompletionTime = Math.round(timeAdjustment * budgetAdjustment)
-
-    //console.log("test")
-    return estimatedCompletionTime
 }
 
 
@@ -123,6 +113,17 @@ for (let i = 0; i < itemsNum; i++) {
     console.log("ID: ", jsonObject.id, "Team Size:", jsonObject.teamSize, "Budget:", jsonObject.budget, "Workload:", jsonObject.workload, "Completion Time:", jsonObject.completionTime)
 }
 
+
+// Endpoint to estimate completion time
+app.post('/estimateCompletion', (req, res) => {
+    const { budget, teamSize, workload } = req.body;
+    const completionTime = estimateCompletion(budget, teamSize, workload);
+    res.json({ completionTime });
+});
+
+app.listen(3000, () => {
+    console.log(`Server running on port ${3000}`);
+});
 
 
 
