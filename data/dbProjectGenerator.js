@@ -53,19 +53,12 @@ function getRandomTitle() {
     return workAssignments[Math.floor(Math.random() * workAssignments.length)];
 }
 
-// // Define an object to map each size to a unique number
-// const sizeMap = {
-//     "XS": 1,
-//     "S": 2,
-//     "M": 3,
-//     "L": 4,
-//     "XL": 5
-// };
+
 
 
 // Function to generate a random story size
 function getRandomSize() {
-    const sizes = [1, 2, 3, 5, 8, 13, 21]
+    const sizes = [1, 2, 3, 5, 8]
     return sizes[Math.floor(Math.random() * sizes.length)];
 }
 
