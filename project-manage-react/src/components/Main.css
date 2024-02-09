@@ -4,21 +4,19 @@ body, html {
 
 .app {
     display: flex;
-    height: 550px; /* Set the height to fill the viewport */
-    overflow: hidden;
+    height: 100vh; 
   }
-  /*
-  .sidebar {
-    width: 15%;
-    background-color: #333;
-    color: #fff;
+
+  .sidebar-outer {
+    width: 15%; 
+    background-color: white;
+    color: black;
   }
-  */
   
   .content {
-    flex: 1; /* Allow the content area to take up remaining space */
-    background-color: #f0f0f0;
+    flex: 1; 
+    background-color: white;
     padding: 20px;
     overflow-y: scroll;
-    height: 500px;
+    height: 100vh;
   }
