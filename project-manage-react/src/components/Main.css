@@ -7,12 +7,13 @@ body, html {
     height: 550px; /* Set the height to fill the viewport */
     overflow: hidden;
   }
-  
+  /*
   .sidebar {
-    width: 15%; /* Set the width to 15% of the viewport */
+    width: 15%;
     background-color: #333;
     color: #fff;
   }
+  */
   
   .content {
     flex: 1; /* Allow the content area to take up remaining space */

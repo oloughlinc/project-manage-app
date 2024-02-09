@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
 import { DataGrid } from '@mui/x-data-grid'
 import Button from '@mui/material/Button';
 import './TasksGrid.css'
@@ -38,7 +39,9 @@ export function TasksGrid() {
                 <p>Workload: Large</p>
                 <p>Estimated Completion: 22 Days</p>
             </div>
-            <Button id="top-right" variant="contained">+ Create Task</Button>
+            <NavLink id="top-right" to="/create">
+            <Button  variant="contained">+ Create Task</Button>
+            </NavLink>
             <div style={{ height: 400, width: '100%' }}>
                 <DataGrid
                     rows={rows}

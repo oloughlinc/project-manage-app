@@ -3,8 +3,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: #333;
-    color: #fff;
+    background-color:#f0f0f0;
+    color: black;
+    border-bottom: 1px solid lightgray;
+    height: 1vh;
   }
   
   .logo img {
@@ -27,7 +29,7 @@
   }
   
   .nav-links a {
-    color: #fff;
+    color: black;
     text-decoration: none;
   }
   

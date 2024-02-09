@@ -13,8 +13,9 @@ export function TasksView() {
             <div className='projectContainer'>
                 <TasksGrid />
             </div>
-            
-            <TasksGrid />
+            <div className='projectContainer'>
+                <TasksGrid />
+            </div>
         </>
     )
 }

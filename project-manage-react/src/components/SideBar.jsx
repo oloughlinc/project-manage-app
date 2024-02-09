@@ -4,7 +4,7 @@ export function SideBar() {
     return (
         <div className="sidebar">
             <div className="sidebar-header">
-                Dashboard Menu
+                Async Avengers Program Project View
             </div>
             <ul className="sidebar-menu">
                 <li><a href="/dashboard">Dashboard</a></li>
