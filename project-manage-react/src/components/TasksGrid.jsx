@@ -46,7 +46,7 @@ export function TasksGrid({tasks, project}) {
             <NavLink id="top-right" to="/create">
             <Button  variant="contained">+ Create Task</Button>
             </NavLink>
-            <div style={{ height: 400, width: '100%' }}>
+            <div style={{ height: '100%', width: '100%' }}>
                 <DataGrid
                     rows={rows}
                     columns={columns}
