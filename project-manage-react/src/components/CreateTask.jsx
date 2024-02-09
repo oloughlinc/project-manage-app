@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Route, Routes, Navigate, Link, NavLink } from 'react-router-dom'
+import { Route, Routes, Navigate, Link, NavLink, useNavigate } from 'react-router-dom'
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import { useParams } from 'react-router-dom';
 
 
 import './CreateTask.css'
@@ -14,6 +15,11 @@ export function CreateTask() {
         dueDate: '',
         size: 0
     });
+
+    const navigate = useNavigate();
+
+    const {project} = useParams();
+    const projectId = project;
 
     // Function to handle input changes
     const handleInputChange = (e) => {
@@ -28,7 +34,7 @@ export function CreateTask() {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Send the formData object via POST request
-        console.log('Form data:', formData);
+        //console.log('Form data:', formData);
         // Reset the form after submission
         setFormData({
             title: '',
@@ -36,6 +42,31 @@ export function CreateTask() {
             dueDate: '',
             size: 0
         });
+        formData.project = projectId;
+        formData.comments = "";
+        formData.completed = false;
+        console.log(formData);
+        
+        fetch('http://localhost:3500/api/tasks', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(response => {
+                if (response.ok) {
+                    navigate('/'); // Navigate to the root URL
+                } else {
+                    // Handle bad response here, e.g., show error message
+                    console.error('Failed to create task:', response.statusText);
+                }
+            })
+            .catch(error => {
+                // Handle fetch error here, e.g., show error message
+                console.error('Error creating task:', error);
+            });
+            
     };
 
     return (

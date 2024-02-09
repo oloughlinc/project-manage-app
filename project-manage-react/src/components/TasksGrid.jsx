@@ -1,11 +1,14 @@
 import React from "react";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { DataGrid } from '@mui/x-data-grid'
 import Button from '@mui/material/Button';
 import './TasksGrid.css'
+import { Navigate } from "react-router-dom";
 
 // display a single project and a list of tasks assoc. w/ it
 export function TasksGrid({tasks, project}) {
+
+    const navigate = useNavigate();
 
     const rows = [];
     let id = 0;
@@ -30,8 +33,10 @@ export function TasksGrid({tasks, project}) {
     ];
 
     const handleRowClick = (params) => {
-        console.log('Row clicked:', params.row); // Log the clicked row data
-        // You can perform any action here with the clicked row data
+        console.log('Row clicked:', params.row); 
+        let taskId = tasks.filter((task) => task.title === params.row.title);
+        taskId = taskId[0]._id;
+        navigate(`/update/${taskId}`)
     };
 
     return (
@@ -43,7 +48,7 @@ export function TasksGrid({tasks, project}) {
                 <p><b>Workload:</b> {project.workload}</p>
                 <p id='estimate'><b>Estimated Completion:</b> 22 Days</p>
             </div>
-            <NavLink id="top-right" to="/create">
+            <NavLink id="top-right" to={`/create/${project.id}`}>
             <Button  variant="contained">+ Create Task</Button>
             </NavLink>
             <div style={{ height: '100%', width: '100%' }}>
