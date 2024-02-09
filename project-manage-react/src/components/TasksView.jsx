@@ -41,7 +41,7 @@ export function TasksView({currentUser}) {
                 let subtasks = tasks.filter((task) => task.project == project.id)
                 return (
                     <div className='projectContainer'>
-                        <TasksGrid tasks={subtasks} project={project}/>
+                        <TasksGrid tasks={subtasks} project={project} currentUser={currentUser}/>
                     </div>
                 );
             })}

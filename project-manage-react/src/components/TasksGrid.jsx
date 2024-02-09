@@ -6,7 +6,9 @@ import './TasksGrid.css'
 import { Navigate } from "react-router-dom";
 
 // display a single project and a list of tasks assoc. w/ it
-export function TasksGrid({tasks, project}) {
+export function TasksGrid({tasks, project, currentUser}) {
+
+    console.log(currentUser);
 
     const navigate = useNavigate();
 
@@ -49,7 +51,7 @@ export function TasksGrid({tasks, project}) {
                 <p id='estimate'><b>Estimated Completion:</b> 22 Days</p>
             </div>
             <NavLink id="top-right" to={`/create/${project.id}`}>
-            <Button  variant="contained">+ Create Task</Button>
+            {currentUser.role === 'manager' ? <Button  variant="contained">+ Create Task</Button> : ''}
             </NavLink>
             <div style={{ height: '100%', width: '100%' }}>
                 <DataGrid

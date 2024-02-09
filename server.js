@@ -49,6 +49,18 @@ async function putOne(database, coll, term) {
     return result;
 }
 
+async function updateOne(database, coll, id, updatedFields) {
+    const client = await MongoClient.connect(dbUri);
+    const db = client.db(database);
+    const collection = db.collection(coll);
+    const result = await collection.updateOne(
+        { _id: id }, // Match document by ID
+        { $set: updatedFields } // Update fields with new values
+    );
+    client.close();
+    return result;
+}
+
 app.get('/api/test', async (req, res) => {
     res.json({'status': 'ok'});
 });
@@ -138,6 +150,19 @@ app.post("/api/tasks", async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 })
+
+app.put("/api/tasks", async (req, res) => {
+    try {
+        let id = req.body.id;
+        let update = req.body.update;
+        console.log(req.body);
+        let o_id = new ObjectId(id);
+        const result = await updateOne(dbName, 'tasks', o_id, update);
+        res.json(result);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 
 const options = {
     definition: {

@@ -18,7 +18,7 @@ export function CreateTask() {
 
     const navigate = useNavigate();
 
-    const {project} = useParams();
+    const { project } = useParams();
     const projectId = project;
 
     // Function to handle input changes
@@ -45,8 +45,16 @@ export function CreateTask() {
         formData.project = projectId;
         formData.comments = "";
         formData.completed = false;
+
+        function convertDateIso(date) {
+            const dateString = "2/28/2024";
+            const [month, day, year] = dateString.split('/');
+            const isoDate = new Date(year, month - 1, day);
+            return isoDate.toISOString();
+        }
+        formData.dueDate = convertDateIso(formData.dueDate);
         console.log(formData);
-        
+
         fetch('http://localhost:3500/api/tasks', {
             method: 'POST',
             headers: {
@@ -66,7 +74,7 @@ export function CreateTask() {
                 // Handle fetch error here, e.g., show error message
                 console.error('Error creating task:', error);
             });
-            
+
     };
 
     return (
