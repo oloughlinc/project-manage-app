@@ -8,8 +8,6 @@ import { Navigate } from "react-router-dom";
 // display a single project and a list of tasks assoc. w/ it
 export function TasksGrid({tasks, project, currentUser}) {
 
-    console.log(currentUser);
-
     const navigate = useNavigate();
 
     const rows = [];

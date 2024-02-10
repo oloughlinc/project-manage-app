@@ -53,19 +53,12 @@ function getRandomTitle() {
     return workAssignments[Math.floor(Math.random() * workAssignments.length)];
 }
 
-// // Define an object to map each size to a unique number
-// const sizeMap = {
-//     "XS": 1,
-//     "S": 2,
-//     "M": 3,
-//     "L": 4,
-//     "XL": 5
-// };
+
 
 
 // Function to generate a random story size
 function getRandomSize() {
-    const sizes = [1, 2, 3, 5, 8, 13, 21]
+    const sizes = [1, 2, 3, 5, 8]
     return sizes[Math.floor(Math.random() * sizes.length)];
 }
 
@@ -93,16 +86,6 @@ function estimateCompletion(budget, teamSize, workload) {
 
     return Math.round(ETIC);
 
-    if (budget > maxBudget / 2) {
-        budgetAdjustment = 1.2 //If budget is high, increase speed
-    } else {
-        budgetAdjustment = 0.8 // If budget is low, decrease speed
-    }
-
-    const estimatedCompletionTime = Math.round(timeAdjustment * budgetAdjustment)
-
-    //console.log("test")
-    return estimatedCompletionTime
 }
 
 
@@ -123,6 +106,17 @@ for (let i = 0; i < itemsNum; i++) {
     console.log("ID: ", jsonObject.id, "Team Size:", jsonObject.teamSize, "Budget:", jsonObject.budget, "Workload:", jsonObject.workload, "Completion Time:", jsonObject.completionTime)
 }
 
+
+// Endpoint to estimate completion time
+app.post('/estimateCompletion', (req, res) => {
+    const { budget, teamSize, workload } = req.body;
+    const completionTime = estimateCompletion(budget, teamSize, workload);
+    res.json({ completionTime });
+});
+
+app.listen(3000, () => {
+    console.log(`Server running on port ${3000}`);
+});
 
 
 

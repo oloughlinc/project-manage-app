@@ -31,3 +31,4 @@ export function Main({currentUser, setCurrentUser}) {
         </>
     )
 }
+

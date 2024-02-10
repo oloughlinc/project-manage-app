@@ -16,7 +16,7 @@ export function TopBar({currentUser, setCurrentUser}) {
   };
   const handleClose = () => {
     setAnchorEl(null);
-    setCurrentUser({});
+    setCurrentUser(null);
     navigate('/login')
   };
 
