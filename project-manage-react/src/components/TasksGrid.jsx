@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { DataGrid } from '@mui/x-data-grid'
 import Button from '@mui/material/Button';
@@ -8,7 +8,36 @@ import { Navigate } from "react-router-dom";
 // display a single project and a list of tasks assoc. w/ it
 export function TasksGrid({tasks, project, currentUser}) {
 
+    const [prediction, setPrediction] = useState('--');
+
     const navigate = useNavigate();
+
+    useEffect(() => {
+        let predObj = {
+            'workload': project.workload,
+            'budget': project.budget,
+            'teamSize': project.teamSize
+        }
+        console.log(predObj);
+        fetch('http://localhost:5000/api/predict', {
+            method: 'POST',
+            
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(predObj),
+        })
+        .then(res => res.json())
+        .then(res => {
+            console.log(res);
+            let pred = res.predicted_values;
+            pred = pred < 1 ? Math.floor((pred*-1)/10) : pred;
+            setPrediction(pred);
+        })
+        .catch(err => {
+            console.log(err.message)
+        })
+    }, [])
 
     const rows = [];
     let id = 0;
@@ -46,7 +75,7 @@ export function TasksGrid({tasks, project, currentUser}) {
                 <p><b>Team Size:</b> {project.teamSize}</p>
                 <p><b>Budget:</b> ${project.budget}</p>
                 <p><b>Workload:</b> {project.workload}</p>
-                <p id='estimate'><b>Estimated Completion:</b> 22 Days</p>
+                <p id='estimate'><b>Estimated Completion:</b> {prediction} {prediction == 1 ? 'Day' : 'Days'}</p>
             </div>
             <NavLink id="top-right" to={`/create/${project.id}`}>
             {currentUser.role === 'manager' ? <Button  variant="contained">+ Create Task</Button> : ''}
