@@ -61,7 +61,9 @@ export const Login = ({ setCurrentUser }) => {
       });
   }
 
-  return <div className={"mainContainer"}>
+  return (
+  <div className={"mainContainer"}>
+    <img src='logo.png' />
     <div className={"titleContainer"}>
       <div>Login</div>
     </div>
@@ -69,7 +71,7 @@ export const Login = ({ setCurrentUser }) => {
     <div className={"inputContainer"}>
       <input
         value={email}
-        placeholder="Enter your email here"
+        placeholder="Email Address *"
         onChange={ev => setEmail(ev.target.value)}
         className={"inputBox"} />
       <label className="errorLabel">{emailError}</label>
@@ -79,7 +81,7 @@ export const Login = ({ setCurrentUser }) => {
       <input
         value={password}
         type='password'
-        placeholder="Enter your password here"
+        placeholder="Password *"
         onChange={ev => setPassword(ev.target.value)}
         className={"inputBox"} />
       <label className="errorLabel">{passwordError}</label>
@@ -90,7 +92,8 @@ export const Login = ({ setCurrentUser }) => {
         className={"inputButton"}
         type="button"
         onClick={onButtonClick}
-        value={"Log in"} />
+        value={"Login"} />
     </div>
   </div>
+  )
 }

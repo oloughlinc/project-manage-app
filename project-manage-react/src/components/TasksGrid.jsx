@@ -46,20 +46,21 @@ export function TasksGrid({tasks, project, currentUser}) {
             id: ++id, 
             title: task.title,
             personAssigned: task.personAssigned,
-            dueDate: task.dueDate,
+            dueDate: task.dueDate.split('T')[0],
             size: task.size,
             completed: task.completed ? 'Complete' : 'In Progress'
         });
     }
-
+    
     const columns = [
-        { field: 'id', headerName: 'ID', width: 50 },
-        { field: 'title', headerName: 'Title', width: 450 },
-        { field: 'personAssigned', headerName: 'Assignee', width: 150 },
-        { field: 'dueDate', headerName: 'Due Date', width: 150 },
-        { field: 'size', headerName: 'Size', width: 90 },
-        { field: 'completed', headerName: 'Status', width: 150 },
+        { field: 'id', headerName: 'ID', width: 50, headerClassName: 'grid-header' },
+        { field: 'title', headerName: 'Task Name', width: 450, headerClassName: 'grid-header'},
+        { field: 'personAssigned', headerName: 'Assignee', width: 150, headerClassName: 'grid-header' },
+        { field: 'dueDate', headerName: 'Due Date', width: 150, headerClassName: 'grid-header' },
+        { field: 'size', headerName: 'Size', width: 90, headerClassName: 'grid-header' },
+        { field: 'completed', headerName: 'Status', minWidth: 150, flex: 1, headerClassName: 'grid-header' },
     ];
+    
 
     const handleRowClick = (params) => {
         console.log('Row clicked:', params.row); 
@@ -70,12 +71,13 @@ export function TasksGrid({tasks, project, currentUser}) {
 
     return (
         <div className="relative-pos">
-            <p id='project-title'>{project.title}</p>
+            <p id='proj-cookie'>Async Avengers Program Planning / Project {project.id}</p>
+            <p id='project-title'><b>{project.title}</b></p>
             <div id='details'>
                 <p><b>Team Size:</b> {project.teamSize}</p>
                 <p><b>Budget:</b> ${project.budget}</p>
                 <p><b>Workload:</b> {project.workload}</p>
-                <p id='estimate'><b>Estimated Completion:</b> {prediction} {prediction == 1 ? 'Day' : 'Days'}</p>
+                <p id='estimate'><b><u>AI Predict</u> Estimated Completion:</b> {prediction} {prediction == 1 ? 'Day' : 'Days'}</p>
             </div>
             <NavLink id="top-right" to={`/create/${project.id}`}>
             {currentUser.role === 'manager' ? <Button  variant="contained">+ Create Task</Button> : ''}
@@ -90,6 +92,12 @@ export function TasksGrid({tasks, project, currentUser}) {
                     pageSizeOptions={[0]}
                     checkboxSelection={false}
                     onRowClick={handleRowClick}
+                    sx={{
+                        "& .MuiDataGrid-row:hover": {
+                          
+                          // color: "red"
+                        }
+                      }}
                 />
             </div>
         </div>

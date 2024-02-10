@@ -3,6 +3,14 @@
     /* or inline-block */
     margin-right: 20px;
     /* Add margin to create space between elements */
+  
+    padding: 10px;
+    border-radius: 10px;
+    background-color: lightblue;
+}
+
+#details p:hover {
+    cursor:default;
 }
 
 #details {
@@ -21,10 +29,25 @@
     position: relative;
 }
 
+.grid-header {
+    background-color: rgb(245, 245, 245);
+}
+
 #project-title {
     font-size: 26px;
+    margin-top: 0px;
 }
 
 #estimate {
-    color: rgb(73, 73, 233);
+    color: rgba(255, 255, 255, 0.918);
+    background-color: rgb(112, 194, 148) !important;
+    background-color: rgb(48, 5, 204) !important;
+    background-color: #0776d1 !important;
+    letter-spacing: 0.1px;
+}
+
+#proj-cookie {
+    margin-bottom: 5px;
+    color: rgb(170,170,170);
+    font-size: 14px;
 }

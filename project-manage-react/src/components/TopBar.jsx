@@ -39,9 +39,8 @@ export function TopBar({currentUser, setCurrentUser}) {
 
       {/* User Profile Section */}
       <div className="user-profile">
-        <span>Welcome, {currentUser.name}</span>
-        {/* <img src="/path/to/profile-pic.png" alt="Profile" /> */}
-        {/* You can add a dropdown menu for user actions */}
+        <span><b>Welcome, {currentUser.name}!</b></span>
+        <img src="user.png" alt="Profile" />
         <div>
           <Button
             id="basic-button"

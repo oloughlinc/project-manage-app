@@ -1,7 +1,7 @@
 .sidebar {
     width: 90%;
     height: 100vh;
-    background-color: white;
+    background-color: rgb(245, 245, 245);
     color: black;
     border-right: 2px solid lightgray;
   }
@@ -10,7 +10,8 @@
     padding: 1rem;
     font-size: 1.2rem;
     font-weight: bold;
-    width: 100%;
+    width: 88%;
+    text-align: center;
   }
   
   .sidebar-menu {
@@ -20,6 +21,7 @@
   
   .sidebar-menu li {
     padding: 0.5rem 1rem;
+    margin-left: 30px;
   }
   
   .sidebar-menu a {
