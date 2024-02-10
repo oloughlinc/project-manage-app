@@ -33,8 +33,8 @@ export function TopBar({currentUser, setCurrentUser}) {
       <ul className="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="http://localhost:3500/api-docs" target="_blank">API</a></li>
+        <li><a href="http://localhost:3500/api-docs" target="_blank">Contact</a></li>
       </ul>
 
       {/* User Profile Section */}
