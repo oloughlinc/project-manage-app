@@ -95,6 +95,7 @@ export function UpdateTask() {
                     </label>
                     <p><strong>Comments:</strong></p>
                     <textarea
+                    style={{'marginBottom': '20px'}}
                         value={task.comments}
                         onChange={(e) => setTask({ ...task, comments: e.target.value })}
                         rows={4}
