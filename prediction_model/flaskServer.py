@@ -18,7 +18,7 @@ work_map = {
 
 @app.route('/api/predict', methods=['POST'])
 def predict():
-    with open('trained_model.pkl', 'rb') as file:
+    with open('model_r2_86.pkl', 'rb') as file:
         model = pickle.load(file)
     
     data = request.get_json()

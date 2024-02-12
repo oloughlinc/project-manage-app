@@ -2,7 +2,7 @@ let fs = require('fs');
 let filename = 'users.json'
 
 const names = ["Alice Smith", "Bob Chancet", "Charlie Thomas", "Dave Emmit", "Emma Emmerson", "Frankie Z", "Grace O'Halley", "Henry Flenderson", "Ivy Jackson", "Jack Johnson"];
-const usernames = ["Alice@wanderers.com", "Bob@wanderers.com", "Charlie@wanderers.com", "Dave@wanderers.com", "Emma@wanderers.com", "Frankie@wanderers.com", "Grace@wanderers.com", "Henry@wanderers.com", "Ivy@wanderers.com", "Jack@wanderers.com"];
+const usernames = ["Alice@aa.com", "Bob@aa.com", "Charlie@aa.com", "Dave@aa.com", "Emma@aa.com", "Frankie@aa.com", "Grace@aa.com", "Henry@aa.com", "Ivy@aa.com", "Jack@aa.com"];
 const password = 'deadduck'
 
 let users = []

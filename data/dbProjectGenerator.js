@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-const filename = 'data/trainingData.json';
-const itemsNum = 10000;
+const filename = 'trainingData3.json';
+const itemsNum = 100000;
 
 const maxTeamSize = 10;
 const maxBudget = 50000;
@@ -67,24 +67,26 @@ function estimateCompletion(budget, teamSize, workload) {
 
     //Time adjustments, baseline = 1
     let timeAdjustment = 1
-    let budgetAdjustment = 1
-    budget = budget/1000
     
     //Calculate time adjustment based on team size and workload
     timeAdjustment = Math.max(1, Math.ceil(workload / teamSize))
-    console.log(timeAdjustment)
+    //console.log(timeAdjustment)
     
     // Normalize budget
     budget /= 10000;
 
     // Calculate ETC (Estimated Time to Completion)
-    let ETC = workload / (budget + teamSize ) ;
-    ETC *= 10
+    // pad numerator and denominator to prevent data 'peaks' at edge cases
+    // (ETC can never be less than 4/2 = 2)
+    let ETC = (workload + 4) / (budget + teamSize + 2) ;
+    ETC *= 900 // variance factor (how wide the completion range can be)
 
     // Add randomness to ETC between 0.9 and 1.1
     let ETIC = ETC * (0.9 + Math.random() * 0.2); // random number between 0.9 and 1.1
+    ETIC /= 15 // scale down ETC to match a reasonable number of days
 
-    return Math.round(ETIC);
+    //return Math.round(ETIC);
+    return Math.floor(ETIC)
 
 }
 
@@ -103,20 +105,9 @@ for (let i = 0; i < itemsNum; i++) {
 
     jsonObject['completionTime'] = estimateCompletion(jsonObject.budget, jsonObject.teamSize, jsonObject.workload);
     jsonArray.push(jsonObject);
-    console.log("ID: ", jsonObject.id, "Team Size:", jsonObject.teamSize, "Budget:", jsonObject.budget, "Workload:", jsonObject.workload, "Completion Time:", jsonObject.completionTime)
+    //console.log("Team Size:", jsonObject.teamSize, "Budget:", jsonObject.budget, "Workload:", jsonObject.workload, "Completion Time:", jsonObject.completionTime)
 }
 
-
-// Endpoint to estimate completion time
-app.post('/estimateCompletion', (req, res) => {
-    const { budget, teamSize, workload } = req.body;
-    const completionTime = estimateCompletion(budget, teamSize, workload);
-    res.json({ completionTime });
-});
-
-app.listen(3000, () => {
-    console.log(`Server running on port ${3000}`);
-});
 
 
 

@@ -1,61 +1,61 @@
 [
     {
         "name": "Alice Smith",
-        "username": "Alice@wanderers.com",
+        "username": "Alice@aa.com",
         "password": "deadduck",
         "role": "worker"
     },
     {
         "name": "Bob Chancet",
-        "username": "Bob@wanderers.com",
+        "username": "Bob@aa.com",
         "password": "deadduck",
         "role": "worker"
     },
     {
         "name": "Charlie Thomas",
-        "username": "Charlie@wanderers.com",
+        "username": "Charlie@aa.com",
         "password": "deadduck",
         "role": "manager"
     },
     {
         "name": "Dave Emmit",
-        "username": "Dave@wanderers.com",
+        "username": "Dave@aa.com",
         "password": "deadduck",
         "role": "worker"
     },
     {
         "name": "Emma Emmerson",
-        "username": "Emma@wanderers.com",
+        "username": "Emma@aa.com",
         "password": "deadduck",
         "role": "worker"
     },
     {
         "name": "Frankie Z",
-        "username": "Frankie@wanderers.com",
+        "username": "Frankie@aa.com",
         "password": "deadduck",
         "role": "worker"
     },
     {
         "name": "Grace O'Halley",
-        "username": "Grace@wanderers.com",
+        "username": "Grace@aa.com",
         "password": "deadduck",
         "role": "worker"
     },
     {
         "name": "Henry Flenderson",
-        "username": "Henry@wanderers.com",
+        "username": "Henry@aa.com",
         "password": "deadduck",
         "role": "worker"
     },
     {
         "name": "Ivy Jackson",
-        "username": "Ivy@wanderers.com",
+        "username": "Ivy@aa.com",
         "password": "deadduck",
         "role": "worker"
     },
     {
         "name": "Jack Johnson",
-        "username": "Jack@wanderers.com",
+        "username": "Jack@aa.com",
         "password": "deadduck",
         "role": "manager"
     }
