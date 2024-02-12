@@ -1,6 +1,8 @@
 import './SideBar.css'
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
+import { Link } from 'react-router-dom';
+
 
 const buttons = [
     <Button key="one">Dashboard</Button>,
@@ -27,7 +29,7 @@ export function SideBar() {
 
             <ul className="sidebar-menu">
                 <li><a href="/dashboard"><b>Dashboard</b></a></li>
-                <li><a href="/analytics"><b>Analytics</b></a></li>
+                <li><Link to="/analytics"><b>Analytics</b></Link></li>
                 <li><a href="/reports"><b>Reports</b></a></li>
             </ul>
         </div>

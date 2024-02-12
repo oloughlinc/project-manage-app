@@ -25,6 +25,7 @@ export function Main({currentUser, setCurrentUser}) {
                         <Route path="/" element={<TasksView currentUser={currentUser}/>} />
                         <Route path="/create/:project" element={<CreateTask />} /> 
                         <Route path="/update/:id" element={<UpdateTask />} />  
+
                     </Routes>
                 </div>
             </div>      
