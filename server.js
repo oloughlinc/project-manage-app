@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express")
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
 require('dotenv').config()
 
 const app = express();
@@ -131,7 +132,8 @@ app.post('/auth/login', async (req, res) => {
     try {
         let {username, password} = req.body;
         const user = await getOne(dbName, 'users', {'username': username});
-        if (!user || password !== user.password) {
+        const verifyPassword = await bcrypt.compare(password, user.password)
+        if (!user || !verifyPassword) {
             res.status(403).json({'message': 'Invalid Credentials'}); 
             return;
         }
