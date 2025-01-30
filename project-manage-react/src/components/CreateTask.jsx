@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 
 import './CreateTask.css'
 
-export function CreateTask() {
+export function CreateTask({ currentUser }) {
     // State to store the form inputs
     const [formData, setFormData] = useState({
         title: '',
@@ -58,7 +58,8 @@ export function CreateTask() {
         fetch('http://localhost:3500/api/tasks', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${currentUser.token}`
             },
             body: JSON.stringify(formData)
         })
