@@ -2,61 +2,61 @@
     {
         "name": "Alice Smith",
         "username": "Alice@aa.com",
-        "password": "deadduck",
+        "password": "$2b$10$ExkraU05zENTd1tUzoZqN.hQruhxjgpB6nAw1FmdO4YY8ThsTnU8u",
         "role": "worker"
     },
     {
         "name": "Bob Chancet",
         "username": "Bob@aa.com",
-        "password": "deadduck",
+        "password": "$2b$10$ExkraU05zENTd1tUzoZqN.hQruhxjgpB6nAw1FmdO4YY8ThsTnU8u",
         "role": "worker"
     },
     {
         "name": "Charlie Thomas",
         "username": "Charlie@aa.com",
-        "password": "deadduck",
+        "password": "$2b$10$ExkraU05zENTd1tUzoZqN.hQruhxjgpB6nAw1FmdO4YY8ThsTnU8u",
         "role": "manager"
     },
     {
         "name": "Dave Emmit",
         "username": "Dave@aa.com",
-        "password": "deadduck",
+        "password": "$2b$10$ExkraU05zENTd1tUzoZqN.hQruhxjgpB6nAw1FmdO4YY8ThsTnU8u",
         "role": "worker"
     },
     {
         "name": "Emma Emmerson",
         "username": "Emma@aa.com",
-        "password": "deadduck",
+        "password": "$2b$10$ExkraU05zENTd1tUzoZqN.hQruhxjgpB6nAw1FmdO4YY8ThsTnU8u",
         "role": "worker"
     },
     {
         "name": "Frankie Z",
         "username": "Frankie@aa.com",
-        "password": "deadduck",
+        "password": "$2b$10$ExkraU05zENTd1tUzoZqN.hQruhxjgpB6nAw1FmdO4YY8ThsTnU8u",
         "role": "worker"
     },
     {
         "name": "Grace O'Halley",
         "username": "Grace@aa.com",
-        "password": "deadduck",
+        "password": "$2b$10$ExkraU05zENTd1tUzoZqN.hQruhxjgpB6nAw1FmdO4YY8ThsTnU8u",
         "role": "worker"
     },
     {
         "name": "Henry Flenderson",
         "username": "Henry@aa.com",
-        "password": "deadduck",
+        "password": "$2b$10$ExkraU05zENTd1tUzoZqN.hQruhxjgpB6nAw1FmdO4YY8ThsTnU8u",
         "role": "worker"
     },
     {
         "name": "Ivy Jackson",
         "username": "Ivy@aa.com",
-        "password": "deadduck",
+        "password": "$2b$10$ExkraU05zENTd1tUzoZqN.hQruhxjgpB6nAw1FmdO4YY8ThsTnU8u",
         "role": "worker"
     },
     {
         "name": "Jack Johnson",
         "username": "Jack@aa.com",
-        "password": "deadduck",
+        "password": "$2b$10$ExkraU05zENTd1tUzoZqN.hQruhxjgpB6nAw1FmdO4YY8ThsTnU8u",
         "role": "manager"
     }
 ]
