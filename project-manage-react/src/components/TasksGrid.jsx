@@ -4,6 +4,7 @@ import { DataGrid } from '@mui/x-data-grid'
 import Button from '@mui/material/Button';
 import './TasksGrid.css'
 import { Navigate } from "react-router-dom";
+import { decode } from '../util/codec.js'
 
 // display a single project and a list of tasks assoc. w/ it
 export function TasksGrid({tasks, project, currentUser}) {
@@ -80,7 +81,7 @@ export function TasksGrid({tasks, project, currentUser}) {
                 <p id='estimate'><b><u>AI Predict</u> Estimated Completion:</b> {prediction} {prediction == 1 ? 'Day' : 'Days'}</p>
             </div>
             <NavLink id="top-right" to={`/create/${project.id}`}>
-            {currentUser.role === 'manager' ? <Button  variant="contained">+ Create Task</Button> : ''}
+            {decode(currentUser.token).role === 'manager' ? <Button  variant="contained">+ Create Task</Button> : ''}
             </NavLink>
             <div style={{ height: '100%', width: '100%' }}>
                 <DataGrid

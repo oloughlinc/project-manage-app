@@ -4,6 +4,8 @@ const cors = require('cors');
 const bodyParser = require("body-parser");
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express")
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
 
 const app = express();
 
@@ -12,6 +14,36 @@ app.use(cors());
 
 const dbUri = 'mongodb://127.0.0.1:27017';
 const dbName = 'pms';
+
+const jwtKey = process.env.SERVER_TOKEN_PRIVATE_KEY
+
+function generateToken(user) {
+    const payload = {
+        username: user.username,
+        role: user.role,
+        name: user.name,
+    }
+    return jwt.sign(payload, jwtKey, { expiresIn: '1h'})
+}
+
+function authenticateToken(req, res, next) {
+    const token = req.headers['authorization']?.split(' ')[1]
+
+    if (!token) {
+        return res.status(401).json({message: 'No token provided'})
+    }
+
+    jwt.verify(token, jwtKey, (err, payload) => {
+        
+        if (err) {
+            return res.status(403).json({ message: 'Unauthorized '})
+        }
+        req.user = payload
+        next()
+    })
+
+    
+}
 
 async function getAll(database, coll) {
     const client = await MongoClient.connect(dbUri);
@@ -103,7 +135,7 @@ app.post('/auth/login', async (req, res) => {
             res.status(403).json({'message': 'Invalid Credentials'}); 
             return;
         }
-        res.json(user);
+        res.json({ token: generateToken(user) })
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -140,8 +172,11 @@ app.get("/api/tasks/project/:id", async (req, res) => {
     }
 });
 
-app.post("/api/tasks", async (req, res) => {
+app.post("/api/tasks", authenticateToken, async (req, res) => {
     try {
+        if (req.user.role !== "manager") {
+            return res.status(403).json({ message: 'Unauthorized'})
+        }
         let task = req.body;
         console.log(task);
         const result = await putOne(dbName, 'tasks', task);

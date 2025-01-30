@@ -4,6 +4,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import './TopBar.css'
 import { useNavigate } from "react-router-dom";
+import { decode } from '../util/codec.js'
 
 export function TopBar({currentUser, setCurrentUser}) {
 
@@ -39,7 +40,7 @@ export function TopBar({currentUser, setCurrentUser}) {
 
       {/* User Profile Section */}
       <div className="user-profile">
-        <span><b>Welcome, {currentUser.name}!</b></span>
+        <span><b>Welcome, {decode(currentUser.token).name}!</b></span>
         <img src="user.png" alt="Profile" />
         <div>
           <Button

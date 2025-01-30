@@ -23,7 +23,7 @@ export function Main({currentUser, setCurrentUser}) {
                     {/* Main content area */}
                     <Routes>
                         <Route path="/" element={<TasksView currentUser={currentUser}/>} />
-                        <Route path="/create/:project" element={<CreateTask />} /> 
+                        <Route path="/create/:project" element={<CreateTask currentUser={currentUser}/>} /> 
                         <Route path="/update/:id" element={<UpdateTask />} />  
                     </Routes>
                 </div>
